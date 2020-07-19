@@ -1,13 +1,13 @@
-{ stdenv, fetchgit, libX11, libXinerama, libXft }:
+{ stdenv, fetchgit, libX11, libXinerama, libXft, libxcb }:
 
 let
   pname = "dwm";
-  version = "6.2c0.1";
+  version = "6.2c0.2";
 in stdenv.mkDerivation {
   inherit pname version;
 
   src = fetchgit (builtins.fromJSON (builtins.readFile ./source.json));
-  buildInputs = [ libX11 libXinerama libXft ];
+  buildInputs = [ libX11 libXinerama libXft libxcb ];
 
   installPhase = ''
     make install PREFIX=$out
