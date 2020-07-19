@@ -6,7 +6,7 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}, laptop ? true }:
 
 {
   # The `lib`, `modules`, and `overlay` names are special
@@ -15,7 +15,7 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   dwm = pkgs.callPackage ./pkgs/dwm { };
-  dwmstatus = pkgs.callPackage ./pkgs/dwmstatus { };
+  dwmstatus = pkgs.callPackage ./pkgs/dwmstatus { inherit laptop; };
   st = pkgs.callPackage ./pkgs/st { };
 }
 

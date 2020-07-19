@@ -1,4 +1,4 @@
-{ stdenv, fetchgit, libX11 }:
+{ laptop ? true, stdenv, fetchgit, libX11 }:
 
 let
   pname = "dwmstatus";
@@ -6,7 +6,9 @@ let
 in stdenv.mkDerivation {
   inherit pname version;
 
-  src = fetchgit (builtins.fromJSON (builtins.readFile ./source.json));
+  src = if laptop
+        then fetchgit (builtins.fromJSON (builtins.readFile ./source_laptop.json))
+        else fetchgit (builtins.fromJSON (builtins.readFile ./source_desktop.json));
   buildInputs = [ libX11 ];
 
   installPhase = ''
