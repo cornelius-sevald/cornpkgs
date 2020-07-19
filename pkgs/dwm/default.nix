@@ -2,7 +2,7 @@
 
 let
   pname = "dwm";
-  version = "6.2-corn";
+  version = "6.2c0.1";
 in stdenv.mkDerivation {
   inherit pname version;
 
