@@ -1,5 +1,7 @@
 {
-	"url": "https://github.com/cornelius-sevald/dwm.git",
-	"rev": "8e4de301b5edf57291a732b34adb4ca11f98d4c1",
-	"sha256": "0x9nxv4iv1ml35c8x8nad1cd8szhk7xznn7i4k4wj99v549w00lf"
+  "url": "https://github.com/cornelius-sevald/dwm.git",
+  "rev": "a31e6dad67f2325773a167b79c9ac4ef087804e5",
+  "date": "2020-07-21T18:49:59+02:00",
+  "sha256": "0bnsb8h1lpiacwh1bgh0z6324sw7lgr8jzlpx2zngbqp1glrry9b",
+  "fetchSubmodules": false
 }
