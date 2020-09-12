@@ -6,7 +6,7 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> {}, laptop ? true }:
+{ pkgs ? import <nixpkgs> {}, laptop ? false }:
 
 {
   # The `lib`, `modules`, and `overlay` names are special
