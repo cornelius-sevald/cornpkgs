@@ -17,6 +17,5 @@
   dwm = pkgs.callPackage ./pkgs/dwm { };
   dwmstatus = pkgs.callPackage ./pkgs/dwmstatus { inherit laptop; };
   st = pkgs.callPackage ./pkgs/st { };
-  urn = pkgs.callPackage ./pkgs/urn { };
 }
 
