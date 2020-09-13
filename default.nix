@@ -20,5 +20,7 @@ rec {
   dwmstatus = pkgs.callPackage ./pkgs/dwmstatus { inherit laptop; };
   st = pkgs.callPackage ./pkgs/st { };
   pynput = pkgs.callPackage ./pkgs/pynput { inherit python; };
+  color = pkgs.callPackage ./pkgs/color { };
+  flitter = pkgs.callPackage ./pkgs/flitter { inherit color; };
 }
 
