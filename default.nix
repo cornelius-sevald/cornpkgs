@@ -8,14 +8,17 @@
 
 { pkgs ? import <nixpkgs> {}, laptop ? false }:
 
-{
+rec {
   # The `lib`, `modules`, and `overlay` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  python = pkgs.python38;
+
   dwm = pkgs.callPackage ./pkgs/dwm { };
   dwmstatus = pkgs.callPackage ./pkgs/dwmstatus { inherit laptop; };
   st = pkgs.callPackage ./pkgs/st { };
+  pynput = pkgs.callPackage ./pkgs/pynput { inherit python; };
 }
 
