@@ -1,5 +1,6 @@
 {
 	"url": "https://github.com/cornelius-sevald/urn",
 	"rev": "16f3b46728c6b9043ec12b687e3d68b49b5931ff",
+	"fetchSubmodules": true,
 	"sha256": "sha256:1h99542r04vw2wda8scqfmrfnzwdlhghp5g7187sv3i5mnh6fvqx"
 }
