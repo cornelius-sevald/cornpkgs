@@ -1,6 +1,7 @@
 { stdenv, fetchgit
 , xxd, rsync, imagemagick, pkgconfig
-, gtk3-x11, jansson
+, glib, gsettings_desktop_schemas, gtk
+, jansson
 }:
 
 let
@@ -10,7 +11,14 @@ in stdenv.mkDerivation {
   inherit pname version;
 
   src = fetchgit (builtins.fromJSON (builtins.readFile ./source.json));
-  buildInputs = [ xxd rsync imagemagick pkgconfig gtk3-x11 jansson ];
+  buildInputs = [ 
+    # Needed for Makefile
+    xxd rsync imagemagick pkgconfig 
+    # Needed for GSETTINGS_SCHEMAS_PATH
+    gsettings_desktop_schemas glib gtk
+    # Other dependencies
+    jansson
+  ];
 
   makeFlags = [
     "PREFIX=${placeholder "out"}"
