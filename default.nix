@@ -22,5 +22,6 @@ rec {
   pynput = pkgs.callPackage ./pkgs/pynput { inherit python; };
   color = pkgs.callPackage ./pkgs/color { };
   flitter = pkgs.callPackage ./pkgs/flitter { inherit color; };
+  urn = pkgs.callPackage ./pkgs/urn { };
 }
 
