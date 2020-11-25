@@ -23,5 +23,6 @@ rec {
   color = pkgs.callPackage ./pkgs/color { };
   flitter = pkgs.callPackage ./pkgs/flitter { inherit color; };
   urn = pkgs.callPackage ./pkgs/urn { gtk=pkgs.gtk3; };
+  ftb-classic = pkgs.callPackage ./pkgs/ftb-classic { };
 }
 
