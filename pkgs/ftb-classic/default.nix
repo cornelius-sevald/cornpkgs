@@ -3,6 +3,8 @@
 , makeDesktopItem
 , makeWrapper
 , jre
+, libpulseaudio
+, libXxf86vm
 }:
 let
   desktopItem = makeDesktopItem {
@@ -12,6 +14,11 @@ let
     desktopName = "FTB Launcher";
     categories = "Game;";
   };
+
+  libPath = stdenv.lib.makeLibraryPath [
+    libpulseaudio
+    libXxf86vm # Needed only for versions <1.13
+  ];
 in
   stdenv.mkDerivation rec {
     name = "ftb-classic";
@@ -23,13 +30,14 @@ in
     nativeBuildInputs = [ makeWrapper ];
 
     installPhase = ''
-      mkdir -pv $out/share/java $out/bin
-      cp ${jar} $out/share/java/${name}.jar
+    mkdir -p $out/bin $out/share/ftb
 
-      makeWrapper ${jre}/bin/java $out/bin/${name} \
-        --add-flags "-jar $out/share/java/${name}.jar" \
-        --set _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on' \
-        --set _JAVA_AWT_WM_NONREPARENTING 1
+    makeWrapper ${jre}/bin/java $out/bin/${name} \
+      --add-flags "-jar $out/share/ftb/${name}.jar" \
+      --suffix LD_LIBRARY_PATH : ${libPath}
+
+    cp $jar $out/share/ftb/${name}.jar
+    cp -r ${desktopItem}/share/applications $out/share
     '';
 
     meta = with stdenv.lib; {
