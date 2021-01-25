@@ -25,5 +25,6 @@ rec {
   urn = pkgs.callPackage ./pkgs/urn { gtk=pkgs.gtk3; };
   ftb-classic = pkgs.callPackage ./pkgs/ftb-classic { };
   nbted = pkgs.callPackage ./pkgs/nbted { };
+  polyglot = pkgs.callPackage ./pkgs/polyglot { };
 }
 
